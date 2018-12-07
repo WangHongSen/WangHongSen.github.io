@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>一些安全工具的使用 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="windows获取整个内存 dd命令，无法在winServer2003以上版本使用  Helix提供图形界面 nigilant程序 tool菜单栏  远程获取  ProDiscoverIP(远程系统需要运行servlet程序) OnlineDFS/liveWire windows较新版本（winServer2003后）无法直接之访问/Device/PhysicalMemory, 需要编写定制的内核">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一些安全工具的使用">
+<meta property="og:url" content="http://yoursite.com/2018/12/07/一些安全工具的使用/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="windows获取整个内存 dd命令，无法在winServer2003以上版本使用  Helix提供图形界面 nigilant程序 tool菜单栏  远程获取  ProDiscoverIP(远程系统需要运行servlet程序) OnlineDFS/liveWire windows较新版本（winServer2003后）无法直接之访问/Device/PhysicalMemory, 需要编写定制的内核">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-07T04:39:19.191Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="一些安全工具的使用">
+<meta name="twitter:description" content="windows获取整个内存 dd命令，无法在winServer2003以上版本使用  Helix提供图形界面 nigilant程序 tool菜单栏  远程获取  ProDiscoverIP(远程系统需要运行servlet程序) OnlineDFS/liveWire windows较新版本（winServer2003后）无法直接之访问/Device/PhysicalMemory, 需要编写定制的内核">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,302 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-安全相关" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-一些安全工具的使用" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/安全相关/">安全相关</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/安全相关/" class="archive-article-date">
-  	<time datetime="2018-12-07T04:41:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#ida pro权威教程</p>
-<h2 id="基础界面"><a href="#基础界面" class="headerlink" title="基础界面"></a>基础界面</h2><ol>
-<li>空格键实现反汇编窗口图形界面和文本界面的转换</li>
-<li>反汇编窗口中文本视图采用虚拟地址表示(区域名称:虚拟地址)。箭头窗口中，虚线箭头表示条件跳转，实线非条件跳转。</li>
-<li>names窗口中的编码方案： F 常规函数；L，库函数；I，导入的名称；G，命名代码；D，数据；A，字符串数据</li>
-<li>交叉引用 XREF: CODE XREF代码交叉引用，表示控制权的转移，箭头的方向表示转移目标是在代码上方还是下方<pre><code>DATA XREF数据交叉引用，跟踪二进制文件访问数据的方式，与虚拟地址的字节相关，即与栈变量毫不相关。
-其他：sub_xxx地址xx处的子例程，loc_xxx地址XXX处的指令，byte_xxxx地址xxxx处的8位数据，同样形式还有
-word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
-</code></pre></li>
-<li>反汇编窗口跳转中yes绿色，no红色</li>
-<li>.text代码段 .rdata只读数据段 .data存放程序的全局数据、常量等 .bss程序的未初始化数据，包括声明为static的变量<br>.rsrc资源段 .edata导出数据段 .idata导入数据段包含导入库和地址名称表 .dubug调试信息段</li>
-<li>跳转地址 热键G 或者菜单栏jump</li>
-<li>热键esc，或者jump菜单jump to Previous或者工具栏后退箭头实现后退。同理有前进</li>
-<li>ida根据相对于被保存的返回地址的位置为变量取名。局部变量位于被保存的返回地址之上，函数参数位于被保存的返回地址之下。局部变量名称以var_开头，后跟与保存的帧指针距离。函数参数以arg_为前缀，后跟一个表示变量与被保存的帧指针的之间的距离的十六进制后缀。不适用不列出，即ida只会为在函数中直接引用的栈变量自动生成名称。</li>
-<li>alt+t反汇编窗口字符串搜索</li>
-<li>N更改位置命名，D转换数据类型，C反汇编未知字节</li>
-</ol>
-<h2 id="调用约定"><a href="#调用约定" class="headerlink" title="调用约定"></a>调用约定</h2><ol>
-<li>c调用约定 cdecl从右向左函数参数压栈，被调用函数返回后调整程序栈指针（add esp,n）适用于参数数量可变函数</li>
-<li>标准调用约定 stdcall 调用函数从栈中删除参数（ret n），要求调用函数知道参数的个数所以不适用于参数可变函数。能够生成体积小、速度快点的代码，是Dll文件微软要求的的调用方式。</li>
-<li>x86 fastcall stdcall变种，固定前两个参数放在edx，ecx中</li>
-<li>C++调用约定vc this指针传递到ecx中，g++固定为第一隐含的参数</li>
-</ol>
-<h2 id="注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）"><a href="#注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）" class="headerlink" title="注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）"></a>注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）</h2><h1 id="第一章-基础概念"><a href="#第一章-基础概念" class="headerlink" title="第一章 基础概念"></a>第一章 基础概念</h1><ol>
-<li>补码：整数的补码是其加法逆元<ul>
-<li>二进制，按位取反加一</li>
-<li>十六进制，转化为二进制或者用15减去每一位所得结果再加一</li>
-</ul>
-</li>
-<li>有符号二进制整数，最高位1为负，0为正；最高位是1，则为补码；十六进制最高位大于等于8是正数否则是负数</li>
-</ol>
-<h1 id="第二章-X86架构相关概念"><a href="#第二章-X86架构相关概念" class="headerlink" title="第二章 X86架构相关概念"></a>第二章 X86架构相关概念</h1><ol>
-<li>三个操作模式：protected mode,virtual-8086 mode,real-address mode,system managerment mode</li>
-<li><p>寄存器组</p>
-<ul>
-<li>通用寄存器(8个)：EAX(extended accumulator),EBX(地址指针，保存被访问存储单元的偏移地址),ecx(默认为循环计数器),edx;上述四者都由16和8位寄存器组成，例如EAX：ax(16)+ah(8)+al(8)；ESP(extended stack pointer),ESI(extended source index),EDI(extended destination index),EBP(用于引用堆栈中的函数参数和局部变量，称为扩展帧指针extended frame pointer</li>
-<li>段指针(6个)，cs(code segment register),ds(data segment regiter),es(extra segment register),ss(stack segment register),fs(extra segment register,同es存储附加数据段段值),gs(同fs)</li>
-<li>EFLAGS,处理器状态标志处理器</li>
-<li>EIP指令指针寄存器，下一条要执行的指令地址，</li>
-<li>MMX寄存器，</li>
-<li>FPU，浮点单元含有八个80位的浮点数据寄存器分别命名为st(0),st(1)……  </li>
-</ul>
-<ol start="3">
-<li>内存相关。实地址模式，只能寻址1MB地址，范围00000H-FFFFFH,处理器一次只运行一个程序，可中断；保护模式，可同时运行多个模式，为每个程序分配4GB内存，例如linux;虚拟8086模式；虚拟8085模式中，计算机运行在保护模式下，通过创建一个带有1MB的地址空间的虚拟8086机器老模拟运行于实地址模式的80X86计算机</li>
-<li>X86-64处理器，向后兼容X86指令集，引入了新模式IA-32e，包含两个子模式：compatibility mode,64-bit mode；通用寄存器组扩充为16个64位处理器</li>
-</ol>
-<h1 id="第三章汇编语言基础"><a href="#第三章汇编语言基础" class="headerlink" title="第三章汇编语言基础"></a>第三章汇编语言基础</h1><ol>
-<li>分号添加注释，.data,.code,.stack添加数据段（定义变量）和代码段，运行时堆栈</li>
-<li>整数常量：[{+|-}] digits [radix]，十六进制基数标志h（字母开头需前置0），八进制o或q，十进制d（可省略），二进制b</li>
-<li>整型常量表达式：整数常量，算术表达式。</li>
-<li>实数常量：[sign] integer.[integer][exponnent]，sign:{+,-},exponent:E[{+,-}]integer,至少需要一个数字和小数点；编码实数：十六进制实数</li>
-<li>字符常量，用单引号或双引号包含的一个字符，汇编器在内存中保存该字符的二进制ASCII码数值</li>
-<li>字符串常量，用单引号或双引号包含的一个字符序列（包含空格），引号允许嵌套，内存中保存形式为整数字节数字序列</li>
-<li>保留字：不区分大小写，包含指令助记符，寄存器名称，伪指令，属性（提供变量和操作数的大小和使用信息），运算符，预定义符号</li>
-<li>标识符：1-247个字符，不区分大小写，第一个字符为字母，下花香，@，？或$（避免使用_和$），不与保留字相同</li>
-<li>伪指令：潜入代码中的命令，由汇编器识别执行。不在运行时执行，可定义变量，宏和子程序，为内存段分配名称，执行汇编器日常任务，不区分大小写</li>
-<li>指令：[label:]mnemonic[operands][;comment]。标号(label)是一种标识符，是指令和数据的位置标记，分为数据标号和代码标号。程序代码区标号须有冒号结束。指令助记符(instruction mnemonic)。操作数(operands),数量在0到3个之间，可以是寄存器，内存操作数，整型常量表达式和输入输出端口</li>
-<li>注释应包括程序目标说明，程序创建者和修改者的名单，程序创建和修改日期，程序实现技术说明。分号;指定单行注释；comment和一个用户指定符号定义块注释</li>
-<li>NOP空操作指令，占一个字节，常用作将代码对齐到有效的地址边界</li>
-</ol>
-<p>#第一章 概述</p>
-</li>
-<li>浏览器主要功能：从外部世界的任意位置获取并执行指令。核心安全策略：同源策略(same origin policy SOP),即限制不同来源的的资源之间的交互。当主机名、协议、端口全部相同的时候认定同源。</li>
-<li>web使用客户端-服务器模型。该模型使用请求-响应的通信模式</li>
-<li>前置知识：http头部，html，css，javaScript，VBScript，dom，渲染引擎（rendering engine），geolocation，web存储，跨站资源共享（CORS）,HTML5</li>
-<li>浏览器主要的防御措施： http首部（包含内容安全策略，安全cookie标志，HTTPOnly cookie标志，X-Content-Type-Option标志，Strict-Transport-Security, X-Frame-Options），反射型XSS过滤，沙箱（浏览器沙箱，IFrame沙箱），反网络钓鱼，反恶意软件，混入内容检查（https和http区分）</li>
-<li>核心安全问题：攻击面（浏览器升级速度，静默更新，扩展，插件），放弃控制（让渡权力给服务器），TCP协议控制，加密通信，同源策略，谬论（健壮性法则，外围安全防线谬论）</li>
-<li>攻击的过程：初始化，持久化，攻击（用户、浏览器、扩展、插件、web应用、网络，绕过同源策略）</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/安全相关/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-深度学习相关" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/深度学习相关/">深度学习相关</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/深度学习相关/" class="archive-article-date">
-  	<time datetime="2018-12-07T04:39:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="pandas"><a href="#pandas" class="headerlink" title="pandas"></a>pandas</h1><h2 id="pd-Series-data-index-index"><a href="#pd-Series-data-index-index" class="headerlink" title="pd.Series(data,index=index)"></a>pd.Series(data,index=index)</h2><pre><code>1. data可以是dict,np.narray,scalar；data内部数据可以不一致；
-2. 默认没有index;index可以是non-unique；
-3. 切片操作同np.narray,可使用布尔条件取得索引，可以直接用index还有get(index,default)方法
-4. 字典key自动转换成index
-5. name 属性命名，rename（）属性更新
-</code></pre><h2 id="pd-DataFrame-data-index-columns"><a href="#pd-DataFrame-data-index-columns" class="headerlink" title="pd.DataFrame(data,index,columns)"></a>pd.DataFrame(data,index,columns)</h2><pre><code>1. data可以是dict of 1D ndarrays, lists ,dicts. or series,2-Dnp.ndarray,structured or record ndarray,  a pd.Series,another DataFrame;
-2. index,columns大小与data匹配
-3. columns选择 df[column],  delete df.pop(column), add df[newColumns]=在ipython中可以使用tab自动补全
-4. 行列标签自动对齐，结果对象是原来行列标签的union；columns上align，row broadcasting（注，当包含time Series时在列上broadcasting）
-5. df.T转置（或者df.transpose()），可使用np中的数学函数
-6. df.types显示每一列的数据类型，df.index,df.columns,df.values分别显示df的行标签,列标签，数据内容
-7. df.describe()返回数据的统计信息（数值类型列）
-8. df.sort_index(axis=,ascending=) df.sort_values(by=&apos; &apos;,ascending=False)
-9. 获得column df[column], row切片[]，row选择df.loc[row,columns]
-10. 切片通过df.loc[],df.iloc[]实现，以及boolean；isin()实现filter（列上）
-11. 使用df.at(row,column)对某一个元素的修改（同样用df.iat()只使用数值坐标）;修改一行一列使用df.loc
-12. df.reindex(index,column) 重组织df；df.dropna(how=),how 可以为any或者all；df.fillna(values=)替换np.nan
-13. df.apply(function) 在每一列上执行函数
-14. df.concat() merging 行
-15. join pd.merge(one,two,on=columns)  SQL style列
-16. df.append()
-17. df.groupby(columns).操作()实现splitting,applying,combining
-18. df.stack()压缩df，结果很奇怪
-19. pivot table pd.pivot_table(df, values=,index=,columns=)重组表的内容
-</code></pre><h2 id="pd-Panel-deprecated"><a href="#pd-Panel-deprecated" class="headerlink" title="pd.Panel  deprecated"></a>pd.Panel  deprecated</h2><h2 id="time-Series"><a href="#time-Series" class="headerlink" title="time Series"></a>time Series</h2><pre><code>1. pd.date_range(str,periods=,freq=),str可以是&apos;20180101&apos;,&apos;1/1/2019&apos;等合法形式；periods为数字，表征长度；freq可以是&apos;D&apos;,&apos;S&apos;,&apos;M&apos;,&apos;W&apos;,&apos;Y&apos;,&apos;Min&apos;
-2. 转换time zone, 生成pd.Series后使用series.tz_loacalize(),series.tz_convert()(需localize)，serize.to_period()(去掉freq后的时间信息)
-</code></pre><h2 id="category"><a href="#category" class="headerlink" title="category"></a>category</h2><pre><code>1. 可以使用df[column].astype(type)转换为category
-2. 使用df[column].cat.categories新增category
-3. 使用df[column].cat.set_categories(list)修改
-4. df中的category列可以当做普通列进行sort_values,groupby
-</code></pre><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><pre><code>1. 画图df要先调用df.cumsum(), df.plot() ,使用plt.show()绘制图片
-2. 使用df.to_csv(path),df.read_csv(path,type)输入输出
-3. HDF5读取输入 df.to_hdf(path,dtype),pd.read_hdf(path,dtype)
-
-# pytorch
-</code></pre><h2 id="简单入门准备"><a href="#简单入门准备" class="headerlink" title="简单入门准备"></a>简单入门准备</h2><h3 id="神经网络的一般迭代过程"><a href="#神经网络的一般迭代过程" class="headerlink" title="神经网络的一般迭代过程"></a>神经网络的一般迭代过程</h3><ol>
-<li>定义一个拥有大量可学习的参数的神经网络</li>
-<li>在输入数据集上迭代</li>
-<li>使用神经网络处理输出</li>
-<li>计算loss</li>
-<li>后向传播误差</li>
-<li>跟新权重（参数）</li>
-</ol>
-<h3 id="基础classes"><a href="#基础classes" class="headerlink" title="基础classes"></a>基础classes</h3><ol>
-<li><p>torch.Tensor 支持自动求梯度(autograd)操作的一个多维数组实现。该数组含有梯度w.r.t</p>
-</li>
-<li><p>nn.Module 自然神经网络模块。构建在autograd之上，用来定义运行神经网络。</p>
-</li>
-<li><p>nn.Parameter 一种Tensor, 当给一个Module赋予属性时自动注册成参数</p>
-</li>
-<li><p>autograd pytorch神经网络的核心是autograd自动求导包。该包针对Tensor的所有操作都提供了自动微分操作。该包是一个逐个运行的框架，这意味着反向传播由自己的代码定义来定义如何运行，每一个单一的迭代都可以不一样。</p>
-</li>
-<li><p>autograd.Function autograd前向或者后向实现的定义。每个Tensor操作操作会创建至少一个单一的Function 节点（该节点创建Tensor并encode Tensor历史，变量的.grad_fn属性记录该function节点）</p>
-</li>
-<li><p>autograd.Variable 是tensor的封装，支持几乎所有的操作。完成tensor操作后可以直接调用backward方法，然后所有的梯度计算会自动进行。通过.data属性可以访问原始张量，该变量的梯度会累积到.grad属性上。每个变量还有一个.grad_fn属性，它引用一个已经创建了Variable的Function。通过调用 .backward方法计算变量的导数，如果变量是标量，.backward无需指定任何参数，当变量有很多元素时，需要指定grad_output参数，该参数是一个匹配shape的张量。</p>
-</li>
-<li><p>torch.optim 包含跟新权重的一些规则，例如SGD, Nesterov-SGD, Adam, RMSPro, </p>
-</li>
-</ol>
-<p>示例代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">#LeNet实现</span><br><span class="line">import torch</span><br><span class="line">from torch.autograd import Variable</span><br><span class="line">import torch.nn as nn</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Net(nn.Module):</span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        # 卷积层 &apos;1&apos;表示输入图片为单通道, &apos;6&apos;表示输出通道数, &apos;5&apos;表示卷积核为5*5</span><br><span class="line">        # 核心</span><br><span class="line">        self.conv1 = nn.Conv2d(1, 6, 5)</span><br><span class="line">        self.conv2 = nn.Conv2d(6, 16, 5)</span><br><span class="line">        # 仿射层/全连接层: y = Wx + b</span><br><span class="line">        self.fc1 = nn.Linear(16 * 5 * 5, 120)</span><br><span class="line">        self.fc2 = nn.Linear(120, 84)</span><br><span class="line">        self.fc3 = nn.Linear(84, 10)</span><br><span class="line"></span><br><span class="line">    def forward(self, x):</span><br><span class="line">        #在由多个输入平面组成的输入信号上应用2D最大池化.</span><br><span class="line">        # (2, 2) 代表的是池化操作的步幅</span><br><span class="line">        x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))</span><br><span class="line">        # 如果大小是正方形, 则只能指定一个数字</span><br><span class="line">        x = F.max_pool2d(F.relu(self.conv2(x)), 2)</span><br><span class="line">        x = x.view(-1, self.num_flat_features(x))</span><br><span class="line">        x = F.relu(self.fc1(x))</span><br><span class="line">        x = F.relu(self.fc2(x))</span><br><span class="line">        x = self.fc3(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">    def num_flat_features(self, x):</span><br><span class="line">        size = x.size()[1:]  # 除批量维度外的所有维度</span><br><span class="line">        num_features = 1</span><br><span class="line">        for s in size:</span><br><span class="line">            num_features *= s</span><br><span class="line">        return num_features</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">net = Net()</span><br><span class="line">print(net)</span><br><span class="line">input = torch.randn(1, 1, 32, 32)</span><br><span class="line">out = net(input)</span><br><span class="line">print(out)</span><br><span class="line">params = list(net.parameters())</span><br><span class="line">print(len(params))</span><br><span class="line">print(params[0].size())</span><br><span class="line">net.zero_grad()</span><br><span class="line">out.backward(torch.randn(1, 10))</span><br><span class="line">output = net(input)</span><br><span class="line">target = torch.randn(10)  # a dummy target, for example</span><br><span class="line">target = target.view(1, -1)  # make it the same shape as output</span><br><span class="line">criterion = nn.MSELoss()</span><br><span class="line"></span><br><span class="line">loss = criterion(output, target)</span><br><span class="line">print(loss)</span><br><span class="line">params = net.parameters()</span><br><span class="line">import torch.optim as optim</span><br><span class="line">optimizer = optim.SGD(net.parameters(),lr=0.01)</span><br><span class="line">optimizer.zero_grad()</span><br><span class="line">output = net(input)</span><br><span class="line">loss = criterion(output,target)</span><br><span class="line">loss.backward()</span><br><span class="line">optimizer.step()</span><br></pre></td></tr></table></figure></p>
-<p>注：</p>
-<ul>
-<li>网络学习的参数可以通过.parameters()获取，.named_parameters()可以同时返回学习的参数以及名称。</li>
-<li>训练中，向前传输的是一个autograd.Variable</li>
-<li>使用.zero_grad()方法将网络中所有梯度清零</li>
-<li>torch只支持mini-bathes（小批量）,不支持一次输入一个样本。若是想输入一个样本，必须使用Variable.unsqueeze(0)将batch_size设置为1</li>
-<li>后向传播error使用loss.backward(), 使用前需要清零已存在的梯度(zero_grad)</li>
-</ul>
-<h1 id="Keras"><a href="#Keras" class="headerlink" title="Keras"></a>Keras</h1><h2 id="prepare"><a href="#prepare" class="headerlink" title="prepare"></a>prepare</h2><p>import tensorflow as tf<br>from tensorflow import keras</p>
-<p>使用tf.keras.<strong>version</strong>输出TensorFlow中的kerasAPI的版本，与keras并不一定一致<br>默认使用checkpoint.format保存模型权重， 通过save_format=’h5’来使用HDF5格式保存权重</p>
-<h3 id="简单的线性模型"><a href="#简单的线性模型" class="headerlink" title="简单的线性模型"></a>简单的线性模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#创建</span><br><span class="line">model = keras.Sequential()</span><br><span class="line">#添加一个全连接层(densely-connected)</span><br><span class="line">model.add(keras.layers.Dense(64,activation=&apos;relu&apos;))</span><br><span class="line">#添加一个含有是个单元的softmax输出层</span><br><span class="line">model.add(keras.layers.Dense(10,activation=&apos;softmax))</span><br><span class="line">#配置</span><br><span class="line">layers.Dense(64,activation=&apos;sigmoid&apos;)</span><br><span class="line">layers.Dense(64,activation=tf.sigmoid)</span><br><span class="line">layers.Dense(64,kernel_regularizer=keras.regularizars.l1(0.01))</span><br><span class="line">layers.Dense(64,bias_regularizer=keras.regularizars.l2(0.01))</span><br><span class="line">layers.Dense(64,kernel_initializer=&apos;orthogonal&apos;)</span><br><span class="line">layers.Dense(64,bias_initializer=keras.initializers.constant(2.0))</span><br><span class="line">model.compile(optimizer=tf.train.AdamOptimizer(0.001),loss=&apos;categorical_crossentropy&apos;,metrics=[&apos;accuracy&apos;])</span><br><span class="line">data = np.random.random((1000, 32))</span><br><span class="line">labels = np.random.random((1000, 10))</span><br><span class="line"></span><br><span class="line">val_data = np.random.random((100, 32))</span><br><span class="line">val_labels = np.random.random((100, 10))</span><br><span class="line"></span><br><span class="line">model.fit(data, labels, epochs=10, batch_size=32,</span><br><span class="line">          validation_data=(val_data, val_labels))</span><br></pre></td></tr></table></figure>
-<p>layers参数<br>activation layer的激活函数，应该是一个built-in函数的名字或者可调用对象。默认没有激活函数。<br>kernel_initializer(bias_initializer)权重的初始化方式，参数同activation。<br>kernel_regularizer(bias_regularizer)应用在权重上的正则化项。默认无正则化项。</p>
-<p>tf.keras.Model.compile参数<br>optimizer:指定训练的程序，optimizer应该是tf.train模块实例，例如：AdaOptimizer, RMSPropOptimizer, GradientDescentOptimizer<br>loss 损失函数，应该是一个函数名或者一个tf.keras.losses模块的可调用实例<br>metrics 用于监督训练过程，是字符串名字或者tf.keras.metrics模块中的实例。</p>
-<p>tf.keras.Model.fit参数<br>epochs, keras将训练过程结构化城epochs，一个epochs可以理解为一次对整个输入数据集（batch）的iteration。<br>batch_size<br>validation_data 一个元组，用于展示每次epochs后的loss和metrics的inference mode</p>
-<h3 id="数据集-tf-data"><a href="#数据集-tf-data" class="headerlink" title="数据集 tf.data"></a>数据集 tf.data</h3><h3 id="evaluate-and-predict"><a href="#evaluate-and-predict" class="headerlink" title="evaluate and predict"></a>evaluate and predict</h3><h2 id="functional-API"><a href="#functional-API" class="headerlink" title="functional API"></a>functional API</h2><p>tf.keras.Sequential模型只是layers的简单stack，无法构建任意的模型。使用functional API来完成这一任务<br>一般步骤：</p>
-<ol>
-<li>定义一个callable的layer实例，且该实例返回tensor</li>
-<li>输入、输出张量来定义一个tf.keras.Model实例</li>
-<li>训练(compile,fit函数)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">inputs = keras.Input(shape=(32,)) #定义张量</span><br><span class="line">x = keras.layers.Dense(64,activation=&apos;relu&apos;)(inputs)</span><br><span class="line">y = keras.layers.Dense(64,activation=&apos;relu&apos;)(x)</span><br><span class="line">p = keras.layers.Dense(10,activation=&apos;softmax&apos;)(x)</span><br><span class="line">model = keras.Model(inputs=inputs,outputs=p)</span><br><span class="line">model.compile(optimizer=tf.train.RMSPropOptimizer(0.001),</span><br><span class="line">             loss=&apos;categorical_crossentropy&apos;,</span><br><span class="line">             metrics=[&apos;accuracy&apos;])</span><br><span class="line">model.fit(data,labels,batch_size=32,epochs=5)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>也可以通过subclassing（tc.Model）实现fully-customizable,在<strong>init</strong>方法中定义layers，并将它们设置为类的属性（要在call方法中自定义forward pass，还要重写compute_output_shape）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">class MyModel(keras.Model):</span><br><span class="line"></span><br><span class="line">  def __init__(self, num_classes=10):</span><br><span class="line">    super(MyModel, self).__init__(name=&apos;my_model&apos;)</span><br><span class="line">    self.num_classes = num_classes</span><br><span class="line">    # Define your layers here.</span><br><span class="line">    self.dense_1 = keras.layers.Dense(32, activation=&apos;relu&apos;)</span><br><span class="line">    self.dense_2 = keras.layers.Dense(num_classes, activation=&apos;sigmoid&apos;)</span><br><span class="line"></span><br><span class="line">  def call(self, inputs):</span><br><span class="line">    # Define your forward pass here,</span><br><span class="line">    # using layers you previously defined (in `__init__`).</span><br><span class="line">    x = self.dense_1(inputs)</span><br><span class="line">    return self.dense_2(x)</span><br><span class="line"></span><br><span class="line">  def compute_output_shape(self, input_shape):</span><br><span class="line">    # You need to override this function if you want to use the subclassed model</span><br><span class="line">    # as part of a functional-style model.</span><br><span class="line">    # Otherwise, this method is optional.</span><br><span class="line">    shape = tf.TensorShape(input_shape).as_list()</span><br><span class="line">    shape[-1] = self.num_classes</span><br><span class="line">    return tf.TensorShape(shape)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Instantiates the subclassed model.</span><br><span class="line">model = MyModel(num_classes=10)</span><br><span class="line"></span><br><span class="line"># The compile step specifies the training configuration.</span><br><span class="line">model.compile(optimizer=tf.train.RMSPropOptimizer(0.001),</span><br><span class="line">              loss=&apos;categorical_crossentropy&apos;,</span><br><span class="line">              metrics=[&apos;accuracy&apos;])</span><br><span class="line"></span><br><span class="line"># Trains for 5 epochs.</span><br><span class="line">model.fit(data, labels, batch_size=32, epochs=5)</span><br></pre></td></tr></table></figure></p>
-<p>自定义layers<br>需要实现以下方法：</p>
-<ol>
-<li>build 创建layer的权重，使用add_weight方法田间weight</li>
-<li>call 定义forward pass</li>
-<li>compute_output_shape指定如何计算给定layer的输出shape</li>
-<li>可以通过实现get_config和from_Config实现序列化<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">class MyLayer(keras.layers.Layer):</span><br><span class="line"></span><br><span class="line">  def __init__(self, output_dim, **kwargs):</span><br><span class="line">    self.output_dim = output_dim</span><br><span class="line">    super(MyLayer, self).__init__(**kwargs)</span><br><span class="line"></span><br><span class="line">  def build(self, input_shape):</span><br><span class="line">    shape = tf.TensorShape((input_shape[1], self.output_dim))</span><br><span class="line">    # Create a trainable weight variable for this layer.</span><br><span class="line">    self.kernel = self.add_weight(name=&apos;kernel&apos;,</span><br><span class="line">                                  shape=shape,</span><br><span class="line">                                  initializer=&apos;uniform&apos;,</span><br><span class="line">                                  trainable=True)</span><br><span class="line">    # Be sure to call this at the end</span><br><span class="line">    super(MyLayer, self).build(input_shape)</span><br><span class="line"></span><br><span class="line">  def call(self, inputs):</span><br><span class="line">    return tf.matmul(inputs, self.kernel)</span><br><span class="line"></span><br><span class="line">  def compute_output_shape(self, input_shape):</span><br><span class="line">    shape = tf.TensorShape(input_shape).as_list()</span><br><span class="line">    shape[-1] = self.output_dim</span><br><span class="line">    return tf.TensorShape(shape)</span><br><span class="line"></span><br><span class="line">  def get_config(self):</span><br><span class="line">    base_config = super(MyLayer, self).get_config()</span><br><span class="line">    base_config[&apos;output_dim&apos;] = self.output_dim</span><br><span class="line">    return base_config</span><br><span class="line"></span><br><span class="line">  @classmethod</span><br><span class="line">  def from_config(cls, config):</span><br><span class="line">    return cls(**config)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Create a model using the custom layer</span><br><span class="line">model = keras.Sequential([MyLayer(10),</span><br><span class="line">                          keras.layers.Activation(&apos;softmax&apos;)])</span><br><span class="line"></span><br><span class="line"># The compile step specifies the training configuration</span><br><span class="line">model.compile(optimizer=tf.train.RMSPropOptimizer(0.001),</span><br><span class="line">              loss=&apos;categorical_crossentropy&apos;,</span><br><span class="line">              metrics=[&apos;accuracy&apos;])</span><br><span class="line"></span><br><span class="line"># Trains for 5 epochs.</span><br><span class="line">model.fit(data, targets, batch_size=32, epochs=5)</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="权重"><a href="#权重" class="headerlink" title="权重"></a>权重</h3><p>默认使用checkpoint文件格式保存，keras HDF5格式是keras multi-backend的默认实现)<br>save_weight(path,save_format=’h5’)<br>相同架构才能恢复权重<br>load_weight(path)<br>模型的序列化（不包含weight）：JSON YAML<br>model.to_json()<br>keras.models.model_from_json()</p>
-<h3 id="estimators-API"><a href="#estimators-API" class="headerlink" title="estimators API"></a>estimators API</h3><p>用于在分布式环境下训练模型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">model = keras.Sequential([layers.Dense(10,activation=&apos;softmax&apos;),</span><br><span class="line">                          layers.Dense(10,activation=&apos;softmax&apos;)])</span><br><span class="line"></span><br><span class="line">model.compile(optimizer=tf.train.RMSPropOptimizer(0.001),</span><br><span class="line">              loss=&apos;categorical_crossentropy&apos;,</span><br><span class="line">              metrics=[&apos;accuracy&apos;])</span><br><span class="line"></span><br><span class="line">estimator = keras.estimator.model_to_estimator(model)</span><br></pre></td></tr></table></figure></p>
-<p>keras通过tf.contrib.distributionStrategy实现多GPU支持，只实现了tf.contrib.distribute.MirroredStrategy<br>如果需要使用distributionStrategy，要通过tf.keras.estimator.model_to_estimator将tf.keras.Model转换成tf.estimatoe.Estimatoe</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/深度学习相关/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-一些安全工具的使用" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/一些安全工具的使用/">一些安全工具的使用</a>
+    <h1 class="article-title" itemprop="name">
+      一些安全工具的使用
     </h1>
   
 
@@ -509,6 +225,27 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -516,16 +253,84 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/一些安全工具的使用/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/07/一些安全工具的使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/12/07/深度学习相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          深度学习相关
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/05/项目环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目环境搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -545,191 +350,14 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
 
 
 
-
   
-    <article id="post-项目环境搭建" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/05/项目环境搭建/">项目环境搭建</a>
-    </h1>
   
 
-        
-        <a href="/2018/12/05/项目环境搭建/" class="archive-article-date">
-  	<time datetime="2018-12-05T03:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="记录项目开发环境中遇到的坑"><a href="#记录项目开发环境中遇到的坑" class="headerlink" title="记录项目开发环境中遇到的坑"></a>记录项目开发环境中遇到的坑</h1><h2 id="虚拟机相关"><a href="#虚拟机相关" class="headerlink" title="虚拟机相关"></a>虚拟机相关</h2><ul>
-<li>VMware workstation 15 pro  </li>
-<li>ubuntu 18.04.1 server LTS<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2></li>
-</ul>
-<ol>
-<li>Download the trident-demo repo: git clone <a href="https://github.com/emiapwil/trident-demo" target="_blank" rel="noopener">https://github.com/emiapwil/trident-demo</a></li>
-<li>Make trident-demo the working directory<br>安装相应的python库,需要注意安装larkparser命令为:<br><code>pip install lark-parser</code><br>python脚本是python2，</li>
-<li>Create two virtual networks using the configurations in conf/virbr1.xml and conf/virbr2.xml with<br>  sudo virsh net-define conf/virbr1.xml<br>  sudo virsh net-define conf/virbr2.xml<br>问题在于使用virsh 需要安装libvirtd相关的库，不同ubuntu版本不一样，有提示<br>第二步virsh 添加虚拟网络如果没有安装KVM也是会失败的<br>参考<a href="https://linuxconfig.org/install-and-set-up-kvm-on-ubuntu-18-04-bionic-beaver-linux" target="_blank" rel="noopener">链接</a><br>安装完成后使用  sudo virsh net-start virbr1<pre><code>sudo virsh net-start virbr1
-</code></pre>再使用ifconfig才能显示出文档要求的结果</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/05/项目环境搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-readme" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/readme/">readme</a>
-    </h1>
   
 
-        
-        <a href="/2018/12/04/readme/" class="archive-article-date">
-  	<time datetime="2018-12-04T15:55:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/04/readme/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="write"><a href="#write" class="headerlink" title="write-"></a>write-</h1><p>学习中总结</p>
-<p><strong>会写一些学习中的知识点总结, 和一些我觉得有意思的东西</strong></p>
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/04/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -752,8 +380,8 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

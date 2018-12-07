@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>深度学习相关 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="pandaspd.Series(data,index=index)1. data可以是dict,np.narray,scalar；data内部数据可以不一致； 2. 默认没有index;index可以是non-unique； 3. 切片操作同np.narray,可使用布尔条件取得索引，可以直接用index还有get(index,default)方法 4. 字典key自动转换成index 5. na">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习相关">
+<meta property="og:url" content="http://yoursite.com/2018/12/07/深度学习相关/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="pandaspd.Series(data,index=index)1. data可以是dict,np.narray,scalar；data内部数据可以不一致； 2. 默认没有index;index可以是non-unique； 3. 切片操作同np.narray,可使用布尔条件取得索引，可以直接用index还有get(index,default)方法 4. 字典key自动转换成index 5. na">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-07T04:41:36.047Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="深度学习相关">
+<meta name="twitter:description" content="pandaspd.Series(data,index=index)1. data可以是dict,np.narray,scalar；data内部数据可以不一致； 2. 默认没有index;index可以是non-unique； 3. 切片操作同np.narray,可使用布尔条件取得索引，可以直接用index还有get(index,default)方法 4. 字典key自动转换成index 5. na">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,147 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-安全相关" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-深度学习相关" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/安全相关/">安全相关</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/07/安全相关/" class="archive-article-date">
-  	<time datetime="2018-12-07T04:41:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>#ida pro权威教程</p>
-<h2 id="基础界面"><a href="#基础界面" class="headerlink" title="基础界面"></a>基础界面</h2><ol>
-<li>空格键实现反汇编窗口图形界面和文本界面的转换</li>
-<li>反汇编窗口中文本视图采用虚拟地址表示(区域名称:虚拟地址)。箭头窗口中，虚线箭头表示条件跳转，实线非条件跳转。</li>
-<li>names窗口中的编码方案： F 常规函数；L，库函数；I，导入的名称；G，命名代码；D，数据；A，字符串数据</li>
-<li>交叉引用 XREF: CODE XREF代码交叉引用，表示控制权的转移，箭头的方向表示转移目标是在代码上方还是下方<pre><code>DATA XREF数据交叉引用，跟踪二进制文件访问数据的方式，与虚拟地址的字节相关，即与栈变量毫不相关。
-其他：sub_xxx地址xx处的子例程，loc_xxx地址XXX处的指令，byte_xxxx地址xxxx处的8位数据，同样形式还有
-word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
-</code></pre></li>
-<li>反汇编窗口跳转中yes绿色，no红色</li>
-<li>.text代码段 .rdata只读数据段 .data存放程序的全局数据、常量等 .bss程序的未初始化数据，包括声明为static的变量<br>.rsrc资源段 .edata导出数据段 .idata导入数据段包含导入库和地址名称表 .dubug调试信息段</li>
-<li>跳转地址 热键G 或者菜单栏jump</li>
-<li>热键esc，或者jump菜单jump to Previous或者工具栏后退箭头实现后退。同理有前进</li>
-<li>ida根据相对于被保存的返回地址的位置为变量取名。局部变量位于被保存的返回地址之上，函数参数位于被保存的返回地址之下。局部变量名称以var_开头，后跟与保存的帧指针距离。函数参数以arg_为前缀，后跟一个表示变量与被保存的帧指针的之间的距离的十六进制后缀。不适用不列出，即ida只会为在函数中直接引用的栈变量自动生成名称。</li>
-<li>alt+t反汇编窗口字符串搜索</li>
-<li>N更改位置命名，D转换数据类型，C反汇编未知字节</li>
-</ol>
-<h2 id="调用约定"><a href="#调用约定" class="headerlink" title="调用约定"></a>调用约定</h2><ol>
-<li>c调用约定 cdecl从右向左函数参数压栈，被调用函数返回后调整程序栈指针（add esp,n）适用于参数数量可变函数</li>
-<li>标准调用约定 stdcall 调用函数从栈中删除参数（ret n），要求调用函数知道参数的个数所以不适用于参数可变函数。能够生成体积小、速度快点的代码，是Dll文件微软要求的的调用方式。</li>
-<li>x86 fastcall stdcall变种，固定前两个参数放在edx，ecx中</li>
-<li>C++调用约定vc this指针传递到ecx中，g++固定为第一隐含的参数</li>
-</ol>
-<h2 id="注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）"><a href="#注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）" class="headerlink" title="注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）"></a>注意栈帧中push或者pop直接使用mov等指令使用间接调用的方式获取数据时偏移量的变化（涉及esp，即通常在函数调用处理参数的时候）</h2><h1 id="第一章-基础概念"><a href="#第一章-基础概念" class="headerlink" title="第一章 基础概念"></a>第一章 基础概念</h1><ol>
-<li>补码：整数的补码是其加法逆元<ul>
-<li>二进制，按位取反加一</li>
-<li>十六进制，转化为二进制或者用15减去每一位所得结果再加一</li>
-</ul>
-</li>
-<li>有符号二进制整数，最高位1为负，0为正；最高位是1，则为补码；十六进制最高位大于等于8是正数否则是负数</li>
-</ol>
-<h1 id="第二章-X86架构相关概念"><a href="#第二章-X86架构相关概念" class="headerlink" title="第二章 X86架构相关概念"></a>第二章 X86架构相关概念</h1><ol>
-<li>三个操作模式：protected mode,virtual-8086 mode,real-address mode,system managerment mode</li>
-<li><p>寄存器组</p>
-<ul>
-<li>通用寄存器(8个)：EAX(extended accumulator),EBX(地址指针，保存被访问存储单元的偏移地址),ecx(默认为循环计数器),edx;上述四者都由16和8位寄存器组成，例如EAX：ax(16)+ah(8)+al(8)；ESP(extended stack pointer),ESI(extended source index),EDI(extended destination index),EBP(用于引用堆栈中的函数参数和局部变量，称为扩展帧指针extended frame pointer</li>
-<li>段指针(6个)，cs(code segment register),ds(data segment regiter),es(extra segment register),ss(stack segment register),fs(extra segment register,同es存储附加数据段段值),gs(同fs)</li>
-<li>EFLAGS,处理器状态标志处理器</li>
-<li>EIP指令指针寄存器，下一条要执行的指令地址，</li>
-<li>MMX寄存器，</li>
-<li>FPU，浮点单元含有八个80位的浮点数据寄存器分别命名为st(0),st(1)……  </li>
-</ul>
-<ol start="3">
-<li>内存相关。实地址模式，只能寻址1MB地址，范围00000H-FFFFFH,处理器一次只运行一个程序，可中断；保护模式，可同时运行多个模式，为每个程序分配4GB内存，例如linux;虚拟8086模式；虚拟8085模式中，计算机运行在保护模式下，通过创建一个带有1MB的地址空间的虚拟8086机器老模拟运行于实地址模式的80X86计算机</li>
-<li>X86-64处理器，向后兼容X86指令集，引入了新模式IA-32e，包含两个子模式：compatibility mode,64-bit mode；通用寄存器组扩充为16个64位处理器</li>
-</ol>
-<h1 id="第三章汇编语言基础"><a href="#第三章汇编语言基础" class="headerlink" title="第三章汇编语言基础"></a>第三章汇编语言基础</h1><ol>
-<li>分号添加注释，.data,.code,.stack添加数据段（定义变量）和代码段，运行时堆栈</li>
-<li>整数常量：[{+|-}] digits [radix]，十六进制基数标志h（字母开头需前置0），八进制o或q，十进制d（可省略），二进制b</li>
-<li>整型常量表达式：整数常量，算术表达式。</li>
-<li>实数常量：[sign] integer.[integer][exponnent]，sign:{+,-},exponent:E[{+,-}]integer,至少需要一个数字和小数点；编码实数：十六进制实数</li>
-<li>字符常量，用单引号或双引号包含的一个字符，汇编器在内存中保存该字符的二进制ASCII码数值</li>
-<li>字符串常量，用单引号或双引号包含的一个字符序列（包含空格），引号允许嵌套，内存中保存形式为整数字节数字序列</li>
-<li>保留字：不区分大小写，包含指令助记符，寄存器名称，伪指令，属性（提供变量和操作数的大小和使用信息），运算符，预定义符号</li>
-<li>标识符：1-247个字符，不区分大小写，第一个字符为字母，下花香，@，？或$（避免使用_和$），不与保留字相同</li>
-<li>伪指令：潜入代码中的命令，由汇编器识别执行。不在运行时执行，可定义变量，宏和子程序，为内存段分配名称，执行汇编器日常任务，不区分大小写</li>
-<li>指令：[label:]mnemonic[operands][;comment]。标号(label)是一种标识符，是指令和数据的位置标记，分为数据标号和代码标号。程序代码区标号须有冒号结束。指令助记符(instruction mnemonic)。操作数(operands),数量在0到3个之间，可以是寄存器，内存操作数，整型常量表达式和输入输出端口</li>
-<li>注释应包括程序目标说明，程序创建者和修改者的名单，程序创建和修改日期，程序实现技术说明。分号;指定单行注释；comment和一个用户指定符号定义块注释</li>
-<li>NOP空操作指令，占一个字节，常用作将代码对齐到有效的地址边界</li>
-</ol>
-<p>#第一章 概述</p>
-</li>
-<li>浏览器主要功能：从外部世界的任意位置获取并执行指令。核心安全策略：同源策略(same origin policy SOP),即限制不同来源的的资源之间的交互。当主机名、协议、端口全部相同的时候认定同源。</li>
-<li>web使用客户端-服务器模型。该模型使用请求-响应的通信模式</li>
-<li>前置知识：http头部，html，css，javaScript，VBScript，dom，渲染引擎（rendering engine），geolocation，web存储，跨站资源共享（CORS）,HTML5</li>
-<li>浏览器主要的防御措施： http首部（包含内容安全策略，安全cookie标志，HTTPOnly cookie标志，X-Content-Type-Option标志，Strict-Transport-Security, X-Frame-Options），反射型XSS过滤，沙箱（浏览器沙箱，IFrame沙箱），反网络钓鱼，反恶意软件，混入内容检查（https和http区分）</li>
-<li>核心安全问题：攻击面（浏览器升级速度，静默更新，扩展，插件），放弃控制（让渡权力给服务器），TCP协议控制，加密通信，同源策略，谬论（健壮性法则，外围安全防线谬论）</li>
-<li>攻击的过程：初始化，持久化，攻击（用户、浏览器、扩展、插件、web应用、网络，绕过同源策略）</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/安全相关/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-深度学习相关" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/深度学习相关/">深度学习相关</a>
+    <h1 class="article-title" itemprop="name">
+      深度学习相关
     </h1>
   
 
@@ -400,6 +271,27 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -407,16 +299,84 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/深度学习相关/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/07/深度学习相关/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/12/07/安全相关/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          安全相关
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/07/一些安全工具的使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">一些安全工具的使用</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -436,300 +396,14 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
 
 
 
-
   
-    <article id="post-一些安全工具的使用" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/07/一些安全工具的使用/">一些安全工具的使用</a>
-    </h1>
   
 
-        
-        <a href="/2018/12/07/一些安全工具的使用/" class="archive-article-date">
-  	<time datetime="2018-12-07T04:38:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h1><h2 id="获取整个内存"><a href="#获取整个内存" class="headerlink" title="获取整个内存"></a>获取整个内存</h2><ol>
-<li>dd命令，无法在winServer2003以上版本使用  Helix提供图形界面</li>
-<li>nigilant程序 tool菜单栏 </li>
-<li>远程获取  ProDiscoverIP(远程系统需要运行servlet程序) OnlineDFS/liveWire</li>
-<li>windows较新版本（winServer2003后）无法直接之访问/Device/PhysicalMemory, 需要编写定制的内核驱动程序保证内存获取工具正常访问物理内存</li>
-</ol>
-<h2 id="时间相关工具"><a href="#时间相关工具" class="headerlink" title="时间相关工具"></a>时间相关工具</h2><ol>
-<li>date /t</li>
-<li>time /t</li>
-<li>编程实现</li>
-</ol>
-<h2 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h2><ol>
-<li>hostname 目标系统名称</li>
-<li>whoami 当前系统用户信息</li>
-<li>ver 获得操作系统环境</li>
-<li>ipconfig 获取网络信息 常用选项/all /displaydns</li>
-<li>iplist显示网络接口信息</li>
-<li>dumpwin</li>
-</ol>
-<h2 id="网络配置"><a href="#网络配置" class="headerlink" title="网络配置"></a>网络配置</h2><ol>
-<li>Promiscdetect  promqry 需要.net框架支持 显示网卡的运行模式</li>
-<li>URLprotocolView 识别系统中被激活的协议</li>
-<li>检查网络连接情况（端口，协议，地址），DNS请求，目标系统的NetBIOS名字表,ARP缓存，内部路由表等</li>
-<li>netstat 常用选项 -ano</li>
-<li>nbtstat 显示协议统计和当前使用 NBI 的 TCP/IP 连接 常用选项-S检查NetBIOS缓存</li>
-<li>net 需要管理员权限</li>
-<li>arp 显示arp协议使用的物理地址到ip地址转换表</li>
-</ol>
-<h2 id="登陆用户"><a href="#登陆用户" class="headerlink" title="登陆用户"></a>登陆用户</h2><ol>
-<li>psloggedon</li>
-<li>quser 在windows server中提供 显示用户名，登陆时间、地点，session类别状态</li>
-<li>netuser目标系统中本地登陆账户的详细信息</li>
-<li>logonsession 需要管理员权限，</li>
-</ol>
-<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><ol>
-<li>需要搜集信息： 进程名和PID，临时上下文，内存消耗，可执行程序镜像的进程，用户镜像的进程，子进程，调用库和依赖库，用来创建进程的命令行参数，相关联的句柄，进程的内存内容，与系统状态和残留的环境相关的上下文环境</li>
-<li>tlist window debugging工具 收集活动进程的简单信息</li>
-<li>PRCView 显示当前进程信息 附带pv。pv -e获取进程对应文件位置</li>
-<li>pslist 识别程序运行时间，文件名，对应PID等</li>
-<li>query 系列命令 在较新的win server可以使用</li>
-<li>tasklist 显示所有运行进程的相关信息 -v选项获得与进程所属用户信息</li>
-<li>currProcess输出当前进程的文件的详细信息，用法CurrProcess.exe /stext path</li>
-<li>cmdline（diamondCS）获取进程启动时获取的命令行参数 </li>
-<li>获取进程打开的句柄 handles， open handle（都没有找到）process explorer</li>
-<li>进程打开的dll listdll, PrcView,tasklist等工具</li>
-<li>检查进程所关联的可执行文件，及确定</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/07/一些安全工具的使用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-项目环境搭建" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/05/项目环境搭建/">项目环境搭建</a>
-    </h1>
   
 
-        
-        <a href="/2018/12/05/项目环境搭建/" class="archive-article-date">
-  	<time datetime="2018-12-05T03:05:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="记录项目开发环境中遇到的坑"><a href="#记录项目开发环境中遇到的坑" class="headerlink" title="记录项目开发环境中遇到的坑"></a>记录项目开发环境中遇到的坑</h1><h2 id="虚拟机相关"><a href="#虚拟机相关" class="headerlink" title="虚拟机相关"></a>虚拟机相关</h2><ul>
-<li>VMware workstation 15 pro  </li>
-<li>ubuntu 18.04.1 server LTS<h2 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h2></li>
-</ul>
-<ol>
-<li>Download the trident-demo repo: git clone <a href="https://github.com/emiapwil/trident-demo" target="_blank" rel="noopener">https://github.com/emiapwil/trident-demo</a></li>
-<li>Make trident-demo the working directory<br>安装相应的python库,需要注意安装larkparser命令为:<br><code>pip install lark-parser</code><br>python脚本是python2，</li>
-<li>Create two virtual networks using the configurations in conf/virbr1.xml and conf/virbr2.xml with<br>  sudo virsh net-define conf/virbr1.xml<br>  sudo virsh net-define conf/virbr2.xml<br>问题在于使用virsh 需要安装libvirtd相关的库，不同ubuntu版本不一样，有提示<br>第二步virsh 添加虚拟网络如果没有安装KVM也是会失败的<br>参考<a href="https://linuxconfig.org/install-and-set-up-kvm-on-ubuntu-18-04-bionic-beaver-linux" target="_blank" rel="noopener">链接</a><br>安装完成后使用  sudo virsh net-start virbr1<pre><code>sudo virsh net-start virbr1
-</code></pre>再使用ifconfig才能显示出文档要求的结果</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/05/项目环境搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-readme" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/04/readme/">readme</a>
-    </h1>
   
 
-        
-        <a href="/2018/12/04/readme/" class="archive-article-date">
-  	<time datetime="2018-12-04T15:55:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/04/readme/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="write"><a href="#write" class="headerlink" title="write-"></a>write-</h1><p>学习中总结</p>
-<p><strong>会写一些学习中的知识点总结, 和一些我觉得有意思的东西</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/04/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -752,8 +426,8 @@ word_xxx, dword_xxx, unk_xxxx地址xxxx处的大小未知的数据。
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
